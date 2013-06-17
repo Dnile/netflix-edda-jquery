@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+(function($) {
+var url = 'http://localhost:80808/edda/api/v2/view?callback=instances';
+
+$.ajax({
+   type: 'GET',
+    url: url,
+    async: false,
+    jsonpCallback: 'jsonCallback',
+    contentType: "application/json",
+    dataType: 'jsonp',
+    success: function(json) {
+       console.dir(json.sites);
+    },
+    error: function(e) {
+       console.log(e.message);
+    }
+});
+
+})(jQuery);
+</script>
+</head>
+<body></body>
+</html>
